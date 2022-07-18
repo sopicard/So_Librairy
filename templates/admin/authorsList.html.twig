@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block main %}
+    <section>
+        <a class= "add" href="{{ path("admin_insert_author") }}">Ajouter un auteur</a>
+    </section>
+    <section>
+       {% for author in authorsList %}
+            <h2>{{ author.firstname }} {{ author.lastName }}</h2>
+            <p>{{ author.birthDate ? author.birthDate|date('Y-m-d'): '' }}</p>
+            <p>{{ author.deathDate ? author.deathDate|date('Y-m-d'): '' }}</p>
+            <p>{{ author.books.contains("title") }}</p>
+            <a href={{ path("admin_author", {"id": author.id}) }}> Cliquez ici</a>
+            <a href={{ path("admin_update_author", {"id": author.id}) }}> Modifiez ici </a>
+            <a href={{ path("admin_delete_author", {"id": author.id}) }}> Supprimez là </a>
+        {% endfor %}
+    </section>
+{% endblock %}

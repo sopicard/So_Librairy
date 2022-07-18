@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    <h2 class="sec-title">{{ author.firstName }} {{ author.LastName }}</h2>
+{% endblock %}
+
+{% block main %}
+    <section class="container">
+        <article>
+            <form action="{{ path("admin_insert_author") }}" method="get">
+
+                <label for="firstName">Nom</label>
+                <input type="text" name="firstName">
+
+                <label for="lastName">Prénom</label>
+                <input type="text" name="lastName">
+
+                <label for="birthDate">Date de naissance</label>
+                <input type="date" name="birthDate">
+
+                <label for="deathDate">Date du décès</label>
+                <input type="date" name="deathDate">
+
+
+                <input type="submit">
+            </form>
+        </article>
+    </section>
+{% endblock %}

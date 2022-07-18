@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{% block main %}
+    <section>
+        <a class="add" href="{{ path("admin_insert_book") }}">Ajouter un livre</a>
+    </section>
+    <section>
+        {% for book in booksList %}
+            <h2>{{ book.title }} </h2>
+            <p>{{ book.nbPages }}</p>
+            {% if book.author %}
+                <p>{{ book.author.lastName }}</p>
+            {% endif %}
+
+            <p>{{ book.publishedAt ? book.publishedAt|date('Y-m-d'): '' }}</p>
+
+            <a href={{ path("admin_book", {"id": book.id}) }}> Cliquez ici</a>
+            <a href={{ path("admin_update_book", {"id": book.id}) }}> Modifiez ici </a>
+            <a href={{ path("admin_delete_book", {"id": book.id}) }}> Supprimez là </a>
+        {% endfor %}
+    </section>
+{% endblock %}

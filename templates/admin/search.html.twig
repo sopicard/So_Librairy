@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block main %}
+
+    {% for author in authorsList %}
+        <h2>{{ author.firstname }} {{ author.lastName }}</h2>
+        <p>{{ author.birthDate ? author.birthDate|date('Y-m-d'): '' }}</p>
+        <p>{{ author.deathDate ? author.deathDate|date('Y-m-d'): '' }}</p>
+        <p>{{ author.books.contains("title") }}</p>
+        <a href={{ path("admin_author", {"id": author.id}) }}> Cliquez ici</a>
+        <a href={{ path("admin_update_author", {"id": author.id}) }}> Modifiez ici </a>
+        <a href={{ path("admin_delete_author", {"id": author.id}) }}> Supprimez là </a>
+    {% endfor %}
+
+    {% for book in booksList %}
+        <h2>{{ book.title }} </h2>
+        <p>{{ book.nbPages }}</p>
+        {% if book.author %}
+            <p>{{ book.author.lastName }}</p>{# author.books.contains("title") #}
+        {% endif %}
+        <p>{{ book.publishedAt ? book.publishedAt|date('Y-m-d'): '' }}</p>
+
+        <a href={{ path("admin_book", {"id": book.id}) }}> Cliquez ici</a>
+        <a href={{ path("admin_update_book", {"id": book.id}) }}> Modifiez ici </a>
+        <a href={{ path("admin_delete_book", {"id": book.id}) }}> Supprimez là </a>
+    {% endfor %}
+
+{% endblock %}

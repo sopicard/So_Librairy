@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel= "stylesheet" href= "{{ asset("style.css") }}">
+    {% block title %}
+    <title>Library</title>
+    {% endblock %}
+</head>
+<body>
+<header class=main-menu">
+    <h1 class="main-title">Librairy</h1>
+    <nav class="navbar">
+        <ul class="menu">
+            <li>
+                <a class="btn-home" href="{{ path("home") }}"> Accueil </a>
+            </li>
+            <li>
+                <a class="btn-author" href="{{ path("admin_authorsList") }}">Liste des auteurs</a>
+            </li>
+            <li>
+                <a class="btn-book" href="{{ path("admin_booksList") }}">Liste des livres</a>
+            </li>
+        </ul>
+        <form class="search" method="GET" action="{{ path("admin_search") }}">
+            <label for="search" ></label>
+            <input type="text" name="search" id="search">
+            <button class="search-button" type="submit"> Recherchez </button>
+        </form>
+    </nav>
+</header>
+<main>
+    {% block main %}
+    {% endblock %}
+
+</main>
+
+<footer>
+
+</footer>
+</body>
+</html>

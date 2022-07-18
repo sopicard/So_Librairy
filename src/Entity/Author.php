@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\AuthorRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AuthorRepository::class)]
@@ -14,38 +15,29 @@ class Author
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $title;
-
-    #[ORM\Column(type: 'string', length: 255)]
     private $firstName;
 
     #[ORM\Column(type: 'string', length: 255)]
     private $lastName;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'date', length: 255)]
     private $birthDate;
 
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    #[ORM\Column(type: 'date', length: 255, nullable: true)]
     private $deathDate;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\OneToMany(mappedBy:'author',targetEntity: Book::class)]
     private $books;
+
+
+    public function __construct()
+    {
+        $this->books = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getTitle(): ?string
-    {
-        return $this->title;
-    }
-
-    public function setTitle(string $title): self
-    {
-        $this->title = $title;
-
-        return $this;
     }
 
     public function getFirstName(): ?string
@@ -72,39 +64,44 @@ class Author
         return $this;
     }
 
-    public function getBirthDate(): ?string
+    public function getBirthDate(): ?\DateTimeInterface
     {
         return $this->birthDate;
     }
 
-    public function setBirthDate(string $birthDate): self
+    public function setBirthDate(\DateTimeInterface $birthDate): self
     {
         $this->birthDate = $birthDate;
 
         return $this;
     }
 
-    public function getDeathDate(): ?string
+    public function getDeathDate(): ?\DateTimeInterface
     {
         return $this->deathDate;
     }
 
-    public function setDeathDate(?string $deathDate): self
+    public function setDeathDate(?\DateTimeInterface $deathDate): self
     {
         $this->deathDate = $deathDate;
 
         return $this;
     }
 
-    public function getBooks(): ?string
+    /**
+     * @return ArrayCollection
+     */
+    public function getBooks()
     {
         return $this->books;
     }
 
-    public function setBooks(string $books): self
+    /**
+     * @param ArrayCollection $books
+     */
+    public function setBooks($books): void
     {
         $this->books = $books;
-
-        return $this;
     }
+
 }

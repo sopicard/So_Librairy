@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    <h2 class="sec-title">{{ book.title }}</h2>
+{% endblock %}
+
+{% block main %}
+    <section class="container">
+        <article>
+            <form action="{{ path("admin_insert_book") }}" method="get">
+
+                <label for="title">Titre</label>
+                <input type="text" name="title">
+
+                <label for="nbPages">Nombre de pages</label>
+                <input type="number" name="nbPages">
+
+                <label for="author">Auteur</label>
+                <input type="text" name="author">
+
+                <label for="publishedAt">Date de publication</label>
+                <input type="date" name="publishedAt">
+
+                <input type="submit">
+            </form>
+        </article>
+    </section>
+{% endblock %}

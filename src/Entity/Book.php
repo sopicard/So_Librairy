@@ -19,11 +19,12 @@ class Book
     #[ORM\Column(type: 'integer')]
     private $nbPages;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\ManyToOne(targetEntity: Author::class, inversedBy: 'book')]
     private $author;
 
-    #[ORM\Column(type: 'datetime_immutable')]
+    #[ORM\Column(type: 'date')]
     private $publishedAt;
+
 
     public function getId(): ?int
     {
@@ -54,24 +55,28 @@ class Book
         return $this;
     }
 
-    public function getAuthor(): ?string
+    /**
+     * @return mixed
+     */
+    public function getAuthor()
     {
         return $this->author;
     }
 
-    public function setAuthor(string $author): self
+    /**
+     * @param mixed $author
+     */
+    public function setAuthor($author): void
     {
         $this->author = $author;
-
-        return $this;
     }
 
-    public function getPublishedAt(): ?\DateTimeImmutable
+    public function getPublishedAt(): ?\DateTimeInterface
     {
         return $this->publishedAt;
     }
 
-    public function setPublishedAt(\DateTimeImmutable $publishedAt): self
+    public function setPublishedAt(\DateTimeInterface $publishedAt): self
     {
         $this->publishedAt = $publishedAt;
 
