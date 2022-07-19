@@ -29,7 +29,7 @@ class AdminAuthorController extends AbstractController
      */
     public function showAuthors(AuthorRepository $authorsRepository)
     {
-        $authorsList = $authorsRepository->findall();
+        $authorsList = $authorsRepository->findAll();
 
         return $this->render("admin/authorsList.html.twig", ["authorsList" => $authorsList]);
     }

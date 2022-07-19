@@ -1,0 +1,134 @@
+$primary-color:  #ffe17a;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    font-family: Calibri;
+    margin: 2%;
+}
+
+.main-title {
+    margin: 0;
+    text-align: center;
+    background-color: grey;
+    text-transform: uppercase;
+    color : $primary-color;
+}
+.title-home {
+    padding:5%;
+    background-color: whitesmoke;
+    color:grey;
+}
+.navbar {
+    background-color: lightgrey;
+}
+
+.menu {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.menu li {
+    list-style-type: none;
+    margin: 20px;
+}
+
+.btn-home {
+    text-decoration: none;
+    border: 1px solid grey;
+    border-radius: 15px;
+    background-color: grey;
+    padding: 10px;
+    color: whitesmoke;
+}
+
+.btn-author, .btn-book, .btn-primary, .search-button .add {
+    text-decoration: none;
+    border: 1px solid grey;
+    border-radius: 15px;
+    background-color: grey;
+    padding: 10px;
+    color: whitesmoke;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 1%;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding:2%;
+}
+.search {
+    background-color:lightgrey;
+    padding:10px;
+    width:280px;
+    text-align: center;
+}
+
+p {
+    margin: 10px;
+}
+ a {
+    text-decoration: none;
+    border: 1px solid grey;
+    border-radius: 15px;
+    background-color: whitesmoke;
+    padding: 3px;
+    color: grey;
+}
+form {
+    margin: 20px;
+    background-color:whitesmoke;
+    padding:30px;
+    width:280px;
+    text-align: center;
+}
+
+fieldset {
+    padding:0 20px 20px 20px;
+    margin-bottom:10px;
+    border:1px solid grey;
+}
+
+legend {
+    color:grey;
+    font-weight:bold
+}
+
+label {
+    color: grey;
+    margin-top:10px;
+    display:block;
+}
+label.inline {
+    display:inline;
+    margin-right:50px;
+}
+input, textarea, select {
+    padding:3px;
+    margin-bottom: 10px;
+    border:1px solid grey;
+    border-radius:5px;
+    width:200px;
+}
+select {
+    margin-top:10px;
+}
+input[type=submit]{
+    width:100px;
+    margin-left:5px;
+    box-shadow:1px 1px 1px grey;
+    cursor:pointer;
+    color: grey;
+}

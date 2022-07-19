@@ -28,7 +28,7 @@ class AdminBookController extends AbstractController
      */
     public function showBooks(BookRepository $booksRepository)
     {
-        $booksList = $booksRepository->findall();
+        $booksList = $booksRepository->findAll();
 
         return $this->render("admin/booksList.html.twig", ["booksList" => $booksList]);
     }
