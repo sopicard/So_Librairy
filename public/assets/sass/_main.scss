@@ -1,0 +1,20 @@
+.title-home {
+  padding:5%;
+  background-color: whitesmoke;
+  color:$primary-color;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 1%;
+    article {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      padding:2%;
+      p {
+        margin: 10px;
+        }
+    }
+}

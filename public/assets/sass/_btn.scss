@@ -1,0 +1,21 @@
+.btn-home {
+  @include btn ($primary-color)
+}
+
+.btn-author, .btn-book, .btn-primary, .search-button .add {
+  @include btn ($primary-color)
+}
+.search {
+  background-color:lightgrey;
+  padding:10px;
+  width:280px;
+  text-align: center;
+}
+a {
+  text-decoration: none;
+  border: 1px solid $primary-color;
+  border-radius: 15px;
+  background-color: whitesmoke;
+  padding: 3px;
+  color: $primary-color;
+}

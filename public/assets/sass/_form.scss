@@ -1,0 +1,45 @@
+form {
+  margin: 20px;
+  background-color:whitesmoke;
+  padding:30px;
+  width:280px;
+  text-align: center;
+}
+
+fieldset {
+  padding:0 20px 20px 20px;
+  margin-bottom:10px;
+  border:1px solid $primary-color;
+}
+
+legend {
+  color:$primary-color;
+  font-weight:bold
+}
+
+label {
+  color: $primary-color;
+  margin-top:10px;
+  display:block;
+}
+label.inline {
+  display:inline;
+  margin-right:50px;
+}
+input, textarea, select {
+  padding:3px;
+  margin-bottom: 10px;
+  border:1px solid $primary-color;
+  border-radius:5px;
+  width:200px;
+}
+select {
+  margin-top:10px;
+}
+input[type=submit]{
+  width:100px;
+  margin-left:5px;
+  box-shadow:1px 1px 1px $primary-color;
+  cursor:pointer;
+  color: $primary-color;
+}
