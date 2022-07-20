@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel= "stylesheet" href= "{{ asset("assets/css/style.css") }}">
     {% block title %}
-    <title>Library</title>
+        <title>Library</title>
     {% endblock %}
 </head>
 <body>
@@ -15,18 +15,17 @@
     <h1 class="main-title">Librairy</h1>
     <nav class="navbar">
         <ul class="menu">
+            <li class= btn-author>Bienvenue {{ app.user.email }}</li>
             <li>
-                <a class="btn-home" href="{{ path("home") }}"> Accueil </a>
+                <a class="btn-author" href="{{ path("admin_authorsList") }}">Liste des auteurs</a>
             </li>
             <li>
-                <a class="btn-book" href="{{ path("app_login") }}">Connexion</a>
+                <a class="btn-book" href="{{ path("admin_booksList") }}">Liste des livres</a>
+            </li>
+            <li>
+                <a class="btn-book" href="{{ path("app_logout") }}">Deconnexion</a>
             </li>
         </ul>
-        <form class="search" method="GET" action="{{ path("admin_search") }}">
-            <label for="search" ></label>
-            <input type="text" name="search" id="search">
-            <button class="search-button" type="submit"> Recherchez </button>
-        </form>
     </nav>
 </header>
 <main>
