@@ -1,0 +1,16 @@
+{% extends "admin/base.html.twig" %}
+
+{% block main %}
+    <section>
+        {# Pour pouvoir afficher les admins 1 par 1 => boucle #}
+        {% for admin in admins %}
+            <article>
+                {# Affichage email + roles mais que l'on doit aussi mettre dans une boucle car = array #}
+                <h3>{{ admin.email }}</h3>
+                {% for role in admin.roles %}
+                    <p>{{ role }}</p>
+                {% endfor %}
+            </article>
+        {% endfor %}
+    </section>
+{% endblock %}
