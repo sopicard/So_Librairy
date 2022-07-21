@@ -86,4 +86,33 @@ class AdminAdminController extends AbstractController
            "form" => $form->createView()
        ]);
     }
+
+    /**
+     * @Route("/admin/admin_update/{id}", name="admin_admin_update")
+     */
+    public function updateAdmin($id, UserRepository $userRepository, EntityManagerInterface $entityManager, Request $request, UserPasswordHasherInterface $userPasswordHasher)
+    {
+        $user = $userRepository->find($id);
+
+        $form = $this->createForm(UserType::class, $user);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+          $plainPassword = $form->get('password')->getData();
+          $hashedPassword = $userPasswordHasher->hashPassword($user, $plainPassword);
+          $user->setPassword($hashedPassword);
+
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            $this->addFlash("success", " Admin modifié ! ");
+        }
+
+        return $this->render("admin/update_admin.html.twig", [
+            "form" => $form->createView()
+        ]);
+    }
 }
+

@@ -10,8 +10,8 @@
         <title>Library</title>
     {% endblock %}
 </head>
-<body>
-<header class=main-menu">
+<body class="js_body">
+<header class="main-menu">
     <h1 class="main-title">Librairy</h1>
     <nav class="navbar">
         <ul class="menu">
@@ -26,6 +26,9 @@
                 <a class="btn-book" href="{{ path("app_logout") }}">Deconnexion</a>
             </li>
         </ul>
+        {# button configuré en JS.
+        Toujours ajouter une classe précédée de "js" => permet de cibler l'élément en JS ET de ne pas confondre avec classes CSS #}
+        <button class="js_night_mode">Night Mode</button>
     </nav>
 </header>
 
@@ -43,7 +46,8 @@
 </main>
 
 <footer>
-
+    <p>footer de base !</p>
 </footer>
+<script src="{{ asset('assets/js/main.js') }}"></script>
 </body>
 </html>

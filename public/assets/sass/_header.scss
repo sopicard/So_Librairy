@@ -21,3 +21,21 @@
   margin: 20px;
 }
 
+.night-activated {
+  background-color: darkslategrey;
+}
+.night-activated p {
+  color: whitesmoke;
+}
+
+.night-activated .main-title {
+  background-color: lightpink !important;
+}
+
+.night-activated button {
+  background-color: darkslategrey;
+  color: whitesmoke;
+  border: 1px solid darkslategrey;
+  border-radius: 15px;
+  padding: 10px;
+}
