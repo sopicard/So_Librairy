@@ -2,9 +2,14 @@
   @include btn ($primary-color)
 }
 
-.btn-author, .btn-book, .btn-primary, .search-button, .add, button {
+.btn-author, .btn-book, .btn-primary, .search-button, .add, .btn-night{
   @include btn ($primary-color)
 }
+
+.btn-author {
+  display: inline-block;
+}
+
 .search {
   background-color:lightgrey;
   padding:10px;

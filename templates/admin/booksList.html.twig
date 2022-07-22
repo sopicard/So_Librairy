@@ -1,10 +1,10 @@
 {% extends "admin/base.html.twig" %}
 
 {% block main %}
-    <section>
+    <section class="main-container">
         <a class="add" href="{{ path("admin_insert_book") }}">Ajouter un livre</a>
     </section>
-    <section>
+    <section class="main-container">
         {% for book in booksList %}
             <h2>{{ book.title }} </h2>
             <p>{{ book.nbPages }}</p>

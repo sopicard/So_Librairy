@@ -8,15 +8,28 @@
 
 .navbar {
   background-color: lightgrey;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
 }
 
 .menu {
+  width: 100vw;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: center;
+  list-style-type: none;
+  margin: 20px;
 }
 
-.menu li {
+.menu-desktop {
+ width: 100vw;
+ display: flex;
+ justify-content: space-around;
+ align-items: center;
+}
+
+.menu-desktop > li {
   list-style-type: none;
   margin: 20px;
 }

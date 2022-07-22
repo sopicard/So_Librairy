@@ -12,10 +12,10 @@
 </head>
 <body class="js_body">
 <header class="main-menu">
-    <h1 class="main-title">Librairy</h1>
+    <h1 class="main-title">LIBRAIRY</h1>
     <nav class="navbar">
-        <ul class="menu">
-            <li class= btn-author>Bienvenue {{ app.user.email }}</li>
+        <ul class="menu-desktop">
+            <li class= "btn-author">Bienvenue {{ app.user.email }}</li>
             <li>
                 <a class="btn-author" href="{{ path("admin_authorsList") }}">Liste des auteurs</a>
             </li>
@@ -26,9 +26,20 @@
                 <a class="btn-book" href="{{ path("app_logout") }}">Deconnexion</a>
             </li>
         </ul>
+    </nav>
+    <nav class="menu-mobile">
+        <a class="btn-author" href="{{ path("admin_authorsList") }}">Liste des auteurs</a>
+        <a class="btn-book" href="{{ path("admin_booksList") }}">Liste des livres</a>
+        <a class="btn-book" href="{{ path("app_logout") }}">Deconnexion</a>
+    </nav>
+    <button type="button" aria-label="toggle curtain navigation" class="nav-toggler">
+        <span class="line l1"></span>
+        <span class="line l2"></span>
+        <span class="line l3"></span>
+    </button>
         {# button configuré en JS.
         Toujours ajouter une classe précédée de "js" => permet de cibler l'élément en JS ET de ne pas confondre avec classes CSS #}
-        <button class="js_night_mode">Night Mode</button>
+        <button class="js_night_mode btn-night">Night Mode</button>
     </nav>
 </header>
 
@@ -39,7 +50,7 @@
     <p class="mess-error">{{ message }}</p>
 {% endfor %}
 
-<main>
+<main class="main-container">
     {% block main %}
     {% endblock %}
 

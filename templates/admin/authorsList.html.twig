@@ -1,10 +1,10 @@
 {% extends "admin/base.html.twig" %}
 
 {% block main %}
-    <section>
+    <section class="main-container">
         <a class= "add" href="{{ path("admin_insert_author") }}">Ajouter un auteur</a>
     </section>
-    <section>
+    <section class="main-container">
        {% for author in authorsList %}
             <h2>{{ author.firstname }} {{ author.lastName }}</h2>
             <p>{{ author.birthDate ? author.birthDate|date('Y-m-d'): '' }}</p>
